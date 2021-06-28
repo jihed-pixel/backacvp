@@ -5,20 +5,20 @@ import com.yobitrust.HachCovid19Back.Models.MedicalService;
 import com.yobitrust.HachCovid19Back.Repositories.MedicalServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins ="http://localhost:3000" )
 @RestController
 public class MedicalServiceController {
     @Autowired
     private MedicalServiceRepository medicalServiceRepository;
+    @CrossOrigin(origins ="http://localhost:3000" )
     @GetMapping("/logout")
     public ResponseEntity logout(){
         System.out.println("logout");
         return  ResponseEntity.ok(null);
     }
+    @CrossOrigin(origins ="http://localhost:3000" )
     @PostMapping("/cc")
     public String addMedicalService(@RequestBody  LoginRequestModel model){
 
@@ -31,6 +31,7 @@ public class MedicalServiceController {
         return "ok";
 
     }
+    @CrossOrigin(origins ="http://localhost:3000" )
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody LoginRequestModel model)
     {

@@ -1,0 +1,15 @@
+medecin 0.1--0.n patient
+patient0.1--0.1 Cin
+patient0.1--0.1 matricule
+patient0.1--0.1 generalInformation
+patient0.1--0.1 habitudesDeVie
+patient0.1--0.1 expoRisque
+patient0.1--0.1 antecedentMedicaux
+patient0.1--0.n confDiags
+patient0.1--0.1 admissions
+patient0.1--0.1 caracCliniques
+patient0.1--0.n examRadio_paraCli
+patient0.1--0.1 evaluationFinale
+patient0.1--0.n traitement
+patient0.1--0.n evaluation
+

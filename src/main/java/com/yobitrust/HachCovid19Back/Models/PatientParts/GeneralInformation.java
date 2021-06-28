@@ -3,50 +3,24 @@ import java.util.Date;
 public class GeneralInformation {
     private String nom;
     private String prenom;
+    private Integer age;
     private String sexe;
-    private Date birthDate;
-    private String nationnalite;
-    private String adresse;
-    private int telPort;
-    private int telDomicile;
-    private String profession;
-    private String niveauEtude;
-    private Boolean vitSeul;
-    private Integer individu;
-    private Integer enfant;
-    private Integer chambres;
-    private String mariee;
+    private Integer dateDebut;
+    private Date date;
+    private Integer nh;
 
 
     public GeneralInformation() {
     }
 
-
-    public GeneralInformation(String mariee,String nom, String prenom, String sexe, Date birthDate, String nationnalite, String adresse, int telPort, int telDomicile, String profession, String niveauEtude, Boolean vitSeul, Integer individu, Integer enfant, Integer chambres) {
-        this.mariee=mariee;
+    public GeneralInformation(String nom, String prenom, Integer age, String sexe, Integer dateDebut, Date date, Integer nh) {
         this.nom = nom;
         this.prenom = prenom;
+        this.age = age;
         this.sexe = sexe;
-        this.birthDate = birthDate;
-        this.nationnalite = nationnalite;
-        this.adresse = adresse;
-        this.telPort = telPort;
-        this.telDomicile = telDomicile;
-        this.profession = profession;
-        this.niveauEtude = niveauEtude;
-        this.vitSeul = vitSeul;
-        this.individu = individu;
-        this.enfant = enfant;
-        this.chambres = chambres;
-    }
-
-
-    public String getMariee() {
-        return mariee;
-    }
-
-    public void setMariee(String mariee) {
-        this.mariee = mariee;
+        this.dateDebut = dateDebut;
+        this.date = date;
+        this.nh = nh;
     }
 
     public String getNom() {
@@ -65,6 +39,14 @@ public class GeneralInformation {
         this.prenom = prenom;
     }
 
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
     public String getSexe() {
         return sexe;
     }
@@ -73,91 +55,27 @@ public class GeneralInformation {
         this.sexe = sexe;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
+    public Integer getDateDebut() {
+        return dateDebut;
     }
 
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
+    public void setDateDebut(Integer dateDebut) {
+        this.dateDebut = dateDebut;
     }
 
-    public String getNationnalite() {
-        return nationnalite;
+    public Date getDate() {
+        return date;
     }
 
-    public void setNationnalite(String nationnalite) {
-        this.nationnalite = nationnalite;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public String getAdresse() {
-        return adresse;
+    public Integer getNh() {
+        return nh;
     }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
-    public int getTelPort() {
-        return telPort;
-    }
-
-    public void setTelPort(int telPort) {
-        this.telPort = telPort;
-    }
-
-    public int getTelDomicile() {
-        return telDomicile;
-    }
-
-    public void setTelDomicile(int telDomicile) {
-        this.telDomicile = telDomicile;
-    }
-
-    public String getProfession() {
-        return profession;
-    }
-
-    public void setProfession(String profession) {
-        this.profession = profession;
-    }
-
-    public String getNiveauEtude() {
-        return niveauEtude;
-    }
-
-    public void setNiveauEtude(String niveauEtude) {
-        this.niveauEtude = niveauEtude;
-    }
-
-    public Boolean getVitSeul() {
-        return vitSeul;
-    }
-
-    public void setVitSeul(Boolean vitSeul) {
-        this.vitSeul = vitSeul;
-    }
-
-    public Integer getIndividu() {
-        return individu;
-    }
-
-    public void setIndividu(Integer individu) {
-        this.individu = individu;
-    }
-
-    public Integer getEnfant() {
-        return enfant;
-    }
-
-    public void setEnfant(Integer enfant) {
-        this.enfant = enfant;
-    }
-
-    public Integer getChambres() {
-        return chambres;
-    }
-
-    public void setChambres(Integer chambres) {
-        this.chambres = chambres;
+    public void setNh(Integer nh) {
+        this.nh = nh;
     }
 }
