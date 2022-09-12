@@ -10,6 +10,7 @@ import java.util.List;
 public interface PatientRepository  extends MongoRepository<Patient,Long> {
 
 
-    Patient findByCin(Integer cin);
+    Patient findByCin(String cin);
+    Patient findByCinAndCinD(String cin,String cinD);
 
 }

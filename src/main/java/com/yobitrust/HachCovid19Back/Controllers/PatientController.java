@@ -21,9 +21,9 @@ public class PatientController {
     @Autowired
     private PatientRepository patientRepository;
 
-    @CrossOrigin(origins ="http://localhost:3000" )
+    @CrossOrigin(origins ="*" )
     @PostMapping("/add-infos-generales/{cin}")
-    public ResponseEntity addInfosGenerales(@RequestBody GeneralInformation generalInformation ,@PathVariable Integer cin){
+    public ResponseEntity addInfosGenerales(@RequestBody GeneralInformation generalInformation ,@PathVariable String cin){
         Patient patient =patientRepository.findByCin(cin);
         if(patient==null)
             return ResponseEntity.ok("Patient not found");
@@ -31,7 +31,7 @@ public class PatientController {
         patientRepository.save(patient);
         return ResponseEntity.ok(patient);
     }
-    @CrossOrigin(origins ="http://localhost:3000" )
+    @CrossOrigin(origins ="*" )
     @PostMapping("/addPatient")
     public ResponseEntity addPatient(@RequestBody AddPatient model) {
 
@@ -40,29 +40,36 @@ public class PatientController {
             return ResponseEntity.ok("Cin or/and matricule already existed");
         Patient newPatient = new Patient();
         newPatient.setCin(model.getCin());
+        newPatient.setCinD(model.getCinD());
         ModelMapper mapper= new ModelMapper();
         GeneralInformation generalInformation = mapper.map(model,GeneralInformation.class);
         newPatient.setGeneralInformation(generalInformation);
         patientRepository.save(newPatient);
-        return ResponseEntity.ok("Patient added successfuly");
+        return ResponseEntity.ok(newPatient);
     }
-    @CrossOrigin(origins ="http://localhost:3000" )
+    @CrossOrigin(origins ="*" )
     @GetMapping("/getAllPatients")
     public ResponseEntity getAllPatients(){
         List<Patient> patients= patientRepository.findAll();
         return ResponseEntity.ok(patients);
     }
-    @CrossOrigin(origins ="http://localhost:3000" )
+    @CrossOrigin(origins ="*" )
+    @GetMapping("/search1/{cin}/{cinD}")
+    public ResponseEntity searchPatient(@PathVariable String cin,@PathVariable String cinD){
+        Patient patient=patientRepository.findByCinAndCinD(cin,cinD);
+        if(patient==null) return ResponseEntity.ok("No patient having \""+cin+"\"as cin ");
+        return ResponseEntity.ok(patient);
+    }
+    @CrossOrigin(origins ="*" )
     @GetMapping("/search/{cin}")
-    public ResponseEntity searchPatient(@PathVariable Integer cin){
+    public ResponseEntity searchPatient(@PathVariable String cin){
         Patient patient=patientRepository.findByCin(cin);
         if(patient==null) return ResponseEntity.ok("No patient having \""+cin+"\"as cin ");
         return ResponseEntity.ok(patient);
-
     }
-    @CrossOrigin(origins ="http://localhost:3000" )
+    @CrossOrigin(origins ="*" )
     @PostMapping("/interrogatoire/{cin}")
-    public ResponseEntity interrogatoire(@RequestBody Interrogatoire interrogatoire,@PathVariable Integer cin){
+    public ResponseEntity interrogatoire(@RequestBody Interrogatoire interrogatoire,@PathVariable String cin){
         Patient patient=patientRepository.findByCin(cin);
         if(patient==null)
             return ResponseEntity.ok("Patient not found");
@@ -71,9 +78,9 @@ public class PatientController {
         patientRepository.save(patient);
         return  ResponseEntity.ok(patient);
     }
-    @CrossOrigin(origins ="http://localhost:3000" )
+    @CrossOrigin(origins ="*" )
     @PostMapping("/examen-clinque/{cin}")
-    public ResponseEntity examenClinique(@RequestBody ExamenClinique examenClinique,@PathVariable Integer cin){
+    public ResponseEntity examenClinique(@RequestBody ExamenClinique examenClinique,@PathVariable String cin){
         Patient patient=patientRepository.findByCin(cin);
         if(patient==null)
             return ResponseEntity.ok("Patient not found");
@@ -82,9 +89,9 @@ public class PatientController {
         patientRepository.save(patient);
         return  ResponseEntity.ok(patient);
     }
-    @CrossOrigin(origins ="http://localhost:3000" )
+    @CrossOrigin(origins ="*" )
     @PostMapping("/etude-ecg/{cin}")
-    public ResponseEntity etudeECG(@RequestBody EtudeECG etudeECG,@PathVariable Integer cin){
+    public ResponseEntity etudeECG(@RequestBody EtudeECG etudeECG,@PathVariable String cin){
         Patient patient=patientRepository.findByCin(cin);
         if(patient==null)
             return ResponseEntity.ok("Patient not found");
@@ -93,9 +100,9 @@ public class PatientController {
         patientRepository.save(patient);
         return  ResponseEntity.ok(patient);
     }
-    @CrossOrigin(origins ="http://localhost:3000" )
+    @CrossOrigin(origins ="*" )
     @PostMapping("/etude-qrs/{cin}")
-    public ResponseEntity etudeQRS(@RequestBody EtudeQRS etudeQRS,@PathVariable Integer cin){
+    public ResponseEntity etudeQRS(@RequestBody EtudeQRS etudeQRS,@PathVariable String cin){
         Patient patient=patientRepository.findByCin(cin);
         if(patient==null)
             return ResponseEntity.ok("Patient not found");
@@ -104,9 +111,9 @@ public class PatientController {
         patientRepository.save(patient);
         return  ResponseEntity.ok(patient);
     }
-    @CrossOrigin(origins ="http://localhost:3000" )
+    @CrossOrigin(origins ="*" )
     @PostMapping("/etude-ondet/{cin}")
-    public ResponseEntity etudeQRS(@RequestBody EtudeOndeT etudeOndeT,@PathVariable Integer cin){
+    public ResponseEntity etudeQRS(@RequestBody EtudeOndeT etudeOndeT,@PathVariable String cin){
         Patient patient=patientRepository.findByCin(cin);
         if(patient==null)
             return ResponseEntity.ok("Patient not found");
@@ -115,9 +122,9 @@ public class PatientController {
         patientRepository.save(patient);
         return  ResponseEntity.ok(patient);
     }
-    @CrossOrigin(origins ="http://localhost:3000" )
+    @CrossOrigin(origins ="*" )
     @PostMapping("/segment-st/{cin}")
-    public ResponseEntity segment(@RequestBody SegmentSt segmentSt,@PathVariable Integer cin) {
+    public ResponseEntity segment(@RequestBody SegmentSt segmentSt,@PathVariable String cin) {
         Patient patient =patientRepository.findByCin(cin);
         if(patient==null)
             return ResponseEntity.ok("Patient not found");
@@ -147,9 +154,9 @@ public class PatientController {
         return ResponseEntity.ok(patient);
 
     }
-    @CrossOrigin(origins ="http://localhost:3000" )
+    @CrossOrigin(origins ="*" )
     @PostMapping("/aspect-segment/{cin}")
-    public ResponseEntity aspectSegment(@RequestBody AspectSegment aspectSegment,@PathVariable Integer cin){
+    public ResponseEntity aspectSegment(@RequestBody AspectSegment aspectSegment,@PathVariable String cin){
         Patient patient=patientRepository.findByCin(cin);
         if(patient==null)
             return ResponseEntity.ok("Patient not found");
@@ -158,9 +165,9 @@ public class PatientController {
         patientRepository.save(patient);
         return  ResponseEntity.ok(patient);
     }
-    @CrossOrigin(origins ="http://localhost:3000" )
+    @CrossOrigin(origins ="*" )
     @PostMapping("/ventricule/{cin}")
-    public ResponseEntity ventricule(@RequestBody Ventricule ventricule,@PathVariable Integer cin){
+    public ResponseEntity ventricule(@RequestBody Ventricule ventricule,@PathVariable String cin){
         Patient patient=patientRepository.findByCin(cin);
         if(patient==null)
             return ResponseEntity.ok("Patient not found");
@@ -169,9 +176,9 @@ public class PatientController {
         patientRepository.save(patient);
         return  ResponseEntity.ok(patient);
     }
-    @CrossOrigin(origins ="http://localhost:3000" )
+    @CrossOrigin(origins ="*" )
     @PostMapping("/ficheIRM/{cin}")
-    public ResponseEntity ficheIRM(@RequestBody FicheIRM ficheIRM,@PathVariable Integer cin){
+    public ResponseEntity ficheIRM(@RequestBody FicheIRM ficheIRM,@PathVariable String cin){
         Patient patient=patientRepository.findByCin(cin);
         if(patient==null)
             return ResponseEntity.ok("Patient not found");
@@ -180,9 +187,9 @@ public class PatientController {
         patientRepository.save(patient);
         return  ResponseEntity.ok(patient);
     }
-    @CrossOrigin(origins ="http://localhost:3000" )
+    @CrossOrigin(origins ="*" )
     @PostMapping("/cercle1/{cin}")
-    public ResponseEntity cercle1(@RequestBody Cercle1 cercle1,@PathVariable Integer cin){
+    public ResponseEntity cercle1(@RequestBody Cercle1 cercle1,@PathVariable String cin){
         Patient patient=patientRepository.findByCin(cin);
         if(patient==null)
             return ResponseEntity.ok("Patient not found");
@@ -191,8 +198,9 @@ public class PatientController {
         patientRepository.save(patient);
         return  ResponseEntity.ok(patient);
     }
+    @CrossOrigin(origins ="*" )
     @PostMapping("/cercle2/{cin}")
-    public ResponseEntity cercle2(@RequestBody Cercle2 cercle2,@PathVariable Integer cin){
+    public ResponseEntity cercle2(@RequestBody Cercle2 cercle2,@PathVariable String cin){
         Patient patient=patientRepository.findByCin(cin);
         if(patient==null)
             return ResponseEntity.ok("Patient not found");
@@ -201,8 +209,9 @@ public class PatientController {
         patientRepository.save(patient);
         return  ResponseEntity.ok(patient);
     }
+    @CrossOrigin(origins ="*" )
     @PostMapping("/cercle3/{cin}")
-    public ResponseEntity cercle3(@RequestBody Cercle3 cercle3,@PathVariable Integer cin){
+    public ResponseEntity cercle3(@RequestBody Cercle3 cercle3,@PathVariable String cin){
         Patient patient=patientRepository.findByCin(cin);
         if(patient==null)
             return ResponseEntity.ok("Patient not found");
@@ -211,8 +220,9 @@ public class PatientController {
         patientRepository.save(patient);
         return  ResponseEntity.ok(patient);
     }
+    @CrossOrigin(origins ="*" )
     @PostMapping("/cercle4/{cin}")
-    public ResponseEntity cercle4(@RequestBody Cercle4 cercle4,@PathVariable Integer cin){
+    public ResponseEntity cercle4(@RequestBody Cercle4 cercle4,@PathVariable String cin){
         Patient patient=patientRepository.findByCin(cin);
         if(patient==null)
             return ResponseEntity.ok("Patient not found");
@@ -221,50 +231,20 @@ public class PatientController {
         patientRepository.save(patient);
         return  ResponseEntity.ok(patient);
     }
-    @CrossOrigin(origins ="http://localhost:3000" )
+    @CrossOrigin(origins ="*" )
     @PostMapping("/ficheEffort/{cin}")
-    public ResponseEntity ficheEffort(@RequestBody FicheEffort ficheEffort,@PathVariable Integer cin) {
+    public ResponseEntity ficheEffort(@RequestBody FicheEffort ficheEffort,@PathVariable String cin) {
         Patient patient =patientRepository.findByCin(cin);
         if(patient==null)
             return ResponseEntity.ok("Patient not found");
-        ModelMapper mapper= new ModelMapper();
-        HashMap<String, Fiche> types =patient.getFiche();
-        if(ficheEffort.getType().equals("5ème  Palier")){
-            Cinquieme cinquieme = mapper.map(ficheEffort, Cinquieme.class);
-            types.put("cinquieme",cinquieme);
-            patient.setFiche(types);
-        }
-        else if(ficheEffort.getType().equals("2ème Palier")){
-            Deuxieme deuxieme = mapper.map(ficheEffort, Deuxieme.class);
-            types.put("deuxieme",deuxieme);
-            patient.setFiche(types);
-        }
-        else if(ficheEffort.getType().equals("1er Palier")){
-            Premier premier = mapper.map(ficheEffort, Premier.class);
-            types.put("premier",premier);
-            patient.setFiche(types);
-        }
-        else if(ficheEffort.getType().equals("4ème Palier")){
-            Quatrieme quatrieme = mapper.map(ficheEffort, Quatrieme.class);
-            types.put("quatrieme",quatrieme);
-            patient.setFiche(types);
-        }
-        else if(ficheEffort.getType().equals("Récupération")){
-            Recuperation recuperation = mapper.map(ficheEffort, Recuperation.class);
-            types.put("recuperation",recuperation);
-            patient.setFiche(types);
-        }
-        else if(ficheEffort.getType().equals("3ème Palier")){
-            Troisieme troisieme = mapper.map(ficheEffort, Troisieme.class);
-            types.put("troisieme",troisieme);
-            patient.setFiche(types);
-        }
+        else patient.setFicheEffort(ficheEffort);
         patientRepository.save(patient);
         return ResponseEntity.ok(patient);
 
     }
+    @CrossOrigin(origins ="*" )
     @PostMapping("/autre/{cin}")
-    public ResponseEntity autre(@RequestBody Autre autre,@PathVariable Integer cin){
+    public ResponseEntity autre(@RequestBody Autre autre,@PathVariable String cin){
         Patient patient=patientRepository.findByCin(cin);
         if(patient==null)
             return ResponseEntity.ok("Patient not found");

@@ -14,10 +14,12 @@ public class SegmentSt {
     private  Boolean v4;
     private  Boolean v5;
     private  Boolean v6;
+    private  Boolean precoce;
+    private  String sioui;
     private SegmentSt() {
     }
 
-    public SegmentSt(String type, Boolean d1, Boolean d2, Boolean d3, Boolean avr, Boolean avl, Boolean avf, Boolean v1, Boolean v2, Boolean v3, Boolean v4, Boolean v5, Boolean v6) {
+    public SegmentSt(String type, Boolean d1, Boolean d2, Boolean d3, Boolean avr, Boolean avl, Boolean avf, Boolean v1, Boolean v2, Boolean v3, Boolean v4, Boolean v5, Boolean v6, Boolean precoce, String sioui) {
         this.type = type;
         this.d1 = d1;
         this.d2 = d2;
@@ -31,6 +33,8 @@ public class SegmentSt {
         this.v4 = v4;
         this.v5 = v5;
         this.v6 = v6;
+        this.precoce = precoce;
+        this.sioui = sioui;
     }
 
     public String getType() {
@@ -135,5 +139,21 @@ public class SegmentSt {
 
     public void setV6(Boolean v6) {
         this.v6 = v6;
+    }
+
+    public Boolean getPrecoce() {
+        return precoce;
+    }
+
+    public void setPrecoce(Boolean precoce) {
+        this.precoce = precoce;
+    }
+
+    public String getSioui() {
+        return sioui;
+    }
+
+    public void setSioui(String sioui) {
+        this.sioui = sioui;
     }
 }

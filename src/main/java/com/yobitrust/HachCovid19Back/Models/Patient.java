@@ -11,7 +11,8 @@ import java.util.HashMap;
 @Document
 public class Patient {
     @Id
-    private Integer cin ;
+    private String cin ;
+    private String cinD ;
     private GeneralInformation generalInformation;
     private Interrogatoire  interrogatoire;
     private ExamenClinique  examenClinique;
@@ -22,20 +23,20 @@ public class Patient {
     private AspectSegment aspectSegment;
     private Ventricule ventricule;
     private FicheIRM ficheIRM;
+    private FicheEffort ficheEffort;
     private Cercle1 cercle1;
     private Cercle2 cercle2;
     private Cercle3 cercle3;
     private Cercle4 cercle4;
-    private HashMap<String, Fiche>fiche;
     private Autre autre;
     public Patient() {
 
         this.segment=new HashMap<String, Segment>();
-        this.fiche=new HashMap<String, Fiche>();
     }
 
-    public Patient(Integer cin, GeneralInformation generalInformation, Interrogatoire interrogatoire, ExamenClinique examenClinique, EtudeECG etudeECG, EtudeQRS etudeQRS, EtudeOndeT etudeOndeT, HashMap<String, Segment> segment, AspectSegment aspectSegment, Ventricule ventricule, FicheIRM ficheIRM, Cercle1 cercle1, Cercle2 cercle2, Cercle3 cercle3, Cercle4 cercle4, HashMap<String, Fiche> fiche, Autre autre) {
+    public Patient(String cin, String cinD,GeneralInformation generalInformation, Interrogatoire interrogatoire, FicheEffort ficheEffort, ExamenClinique examenClinique, EtudeECG etudeECG, EtudeQRS etudeQRS, EtudeOndeT etudeOndeT, HashMap<String, Segment> segment, AspectSegment aspectSegment, Ventricule ventricule,FicheIRM ficheIRM, Cercle1 cercle1, Cercle2 cercle2, Cercle3 cercle3, Cercle4 cercle4, Autre autre) {
         this.cin = cin;
+        this.cinD = cinD;
         this.generalInformation = generalInformation;
         this.interrogatoire = interrogatoire;
         this.examenClinique = examenClinique;
@@ -46,19 +47,20 @@ public class Patient {
         this.aspectSegment = aspectSegment;
         this.ventricule = ventricule;
         this.ficheIRM = ficheIRM;
+        this.ficheEffort = ficheEffort;
         this.cercle1 = cercle1;
         this.cercle2 = cercle2;
         this.cercle3 = cercle3;
         this.cercle4 = cercle4;
-        this.fiche = fiche;
+        this.ficheIRM = ficheIRM;
         this.autre = autre;
     }
 
-    public Integer getCin() {
+    public String getCin() {
         return cin;
     }
 
-    public void setCin(Integer cin) {
+    public void setCin(String cin) {
         this.cin = cin;
     }
 
@@ -177,13 +179,6 @@ public class Patient {
         this.cercle4 = cercle4;
     }
 
-    public HashMap<String, Fiche> getFiche() {
-        return fiche;
-    }
-
-    public void setFiche(HashMap<String, Fiche> fiche) {
-        this.fiche = fiche;
-    }
 
     public Autre getAutre() {
         return autre;
@@ -191,5 +186,21 @@ public class Patient {
 
     public void setAutre(Autre autre) {
         this.autre = autre;
+    }
+
+    public FicheEffort getFicheEffort() {
+        return ficheEffort;
+    }
+
+    public void setFicheEffort(FicheEffort ficheEffort) {
+        this.ficheEffort = ficheEffort;
+    }
+
+    public String getCinD() {
+        return cinD;
+    }
+
+    public void setCinD(String cinD) {
+        this.cinD = cinD;
     }
 }

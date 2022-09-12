@@ -2,12 +2,16 @@ package com.yobitrust.HachCovid19Back.Models.PatientParts;
 
 public class AspectSegment {
     private Boolean asp;
-    private String intervalle;
+    private String type;
+    private String qt;
+    private String qtc;
     private AspectSegment(){}
 
-    public AspectSegment(Boolean asp, String intervalle) {
+    public AspectSegment(Boolean asp, String type, String qt, String qtc) {
         this.asp = asp;
-        this.intervalle = intervalle;
+        this.type = type;
+        this.qt = qt;
+        this.qtc = qtc;
     }
 
     public Boolean getAsp() {
@@ -18,11 +22,27 @@ public class AspectSegment {
         this.asp = asp;
     }
 
-    public String getIntervalle() {
-        return intervalle;
+    public String getType() {
+        return type;
     }
 
-    public void setIntervalle(String intervalle) {
-        this.intervalle = intervalle;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getQt() {
+        return qt;
+    }
+
+    public void setQt(String qt) {
+        this.qt = qt;
+    }
+
+    public String getQtc() {
+        return qtc;
+    }
+
+    public void setQtc(String qtc) {
+        this.qtc = qtc;
     }
 }

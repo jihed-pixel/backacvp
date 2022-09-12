@@ -3,8 +3,7 @@ package com.yobitrust.HachCovid19Back.Models.PatientParts;
 public class EtudeECG {
     private  String d21;
     private  String avr1;
-    private Boolean  rythmejon;
-    private Boolean  rythmeidio;
+    private Boolean  rythme;
     private Integer  fc;
     private Integer duree;
     private Double  amplitude;
@@ -24,11 +23,10 @@ public class EtudeECG {
     private EtudeECG() {
     }
 
-    public EtudeECG(String d21, String avr1, Boolean rythmejon, Boolean rythmeidio, Integer fc, Integer duree, Double amplitude, String d1, String d2, String d3, String avr, String avl, String avf, String v1, String v2, String v3, String v4, String v5, String v6, Integer intervallPR) {
+    public EtudeECG(String d21, String avr1, Boolean rythme , Integer fc, Integer duree, Double amplitude, String d1, String d2, String d3, String avr, String avl, String avf, String v1, String v2, String v3, String v4, String v5, String v6, Integer intervallPR) {
         this.d21 = d21;
         this.avr1 = avr1;
-        this.rythmejon = rythmejon;
-        this.rythmeidio = rythmeidio;
+        this.rythme = rythme;
         this.fc = fc;
         this.duree = duree;
         this.amplitude = amplitude;
@@ -63,21 +61,15 @@ public class EtudeECG {
         this.avr1 = avr1;
     }
 
-    public Boolean getRythmejon() {
-        return rythmejon;
+    public Boolean getRythme() {
+        return rythme;
     }
 
-    public void setRythmejon(Boolean rythmejon) {
-        this.rythmejon = rythmejon;
+    public void setRythme(Boolean rythme) {
+        this.rythme = rythme;
     }
 
-    public Boolean getRythmeidio() {
-        return rythmeidio;
-    }
 
-    public void setRythmeidio(Boolean rythmeidio) {
-        this.rythmeidio = rythmeidio;
-    }
 
     public Integer getFc() {
         return fc;

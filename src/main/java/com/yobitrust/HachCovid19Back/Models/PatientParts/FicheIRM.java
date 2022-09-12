@@ -31,11 +31,18 @@ public class FicheIRM {
     private  Boolean rehauTar;
     private  String ische;
     private  String  nonische;
-    private  String conclution;
+    private  Boolean  test1;
+    private Boolean test2;
+    private Boolean  pasPrise;
+    private Boolean  sousEnd;
+    private Boolean  transmurale;
+    private Boolean sousEp;
+    private Boolean diffuse;
+    private Boolean patchy;
     private FicheIRM() {
     }
 
-    public FicheIRM(Integer masseMyo, Integer epaiDia, Integer epaiSys, Integer epaiAbs, Integer epaiRef, Integer dog, Integer dod, Integer fe, Integer vtd, Integer vtdI, Integer vts, Integer vtsI, Integer ves, Integer vesI, Integer debitCar, Integer debitCarI, String vg, Integer feVd, Integer vtdVd, Integer vtdIVd, Integer vtsVd, Integer vtsIVd, Integer vesVd, Integer vesIVd, Integer debitCarVd, Integer debitCarIVd, String longaxe, Boolean rehauTar, String ische, String nonische, String conclution) {
+    public FicheIRM(Integer masseMyo, Integer epaiDia, Integer epaiSys, Integer epaiAbs, Integer epaiRef, Integer dog, Integer dod, Integer fe, Integer vtd, Integer vtdI, Integer vts, Integer vtsI, Integer ves, Integer vesI, Integer debitCar, Integer debitCarI, String vg, Integer feVd, Integer vtdVd, Integer vtdIVd, Integer vtsVd, Integer vtsIVd, Integer vesVd, Integer vesIVd, Integer debitCarVd, Integer debitCarIVd, String longaxe, Boolean rehauTar, String ische, String nonische, Boolean test1, Boolean test2, Boolean pasPrise, Boolean sousEnd, Boolean transmurale, Boolean sousEp, Boolean diffuse, Boolean patchy) {
         this.masseMyo = masseMyo;
         this.epaiDia = epaiDia;
         this.epaiSys = epaiSys;
@@ -66,7 +73,14 @@ public class FicheIRM {
         this.rehauTar = rehauTar;
         this.ische = ische;
         this.nonische = nonische;
-        this.conclution = conclution;
+        this.test1 = test1;
+        this.test2 = test2;
+        this.pasPrise = pasPrise;
+        this.sousEnd = sousEnd;
+        this.transmurale = transmurale;
+        this.sousEp = sousEp;
+        this.diffuse = diffuse;
+        this.patchy = patchy;
     }
 
     public Integer getMasseMyo() {
@@ -309,11 +323,67 @@ public class FicheIRM {
         this.nonische = nonische;
     }
 
-    public String getConclution() {
-        return conclution;
+    public Boolean getTest1() {
+        return test1;
     }
 
-    public void setConclution(String conclution) {
-        this.conclution = conclution;
+    public void setTest1(Boolean test1) {
+        this.test1 = test1;
+    }
+
+    public Boolean getTest2() {
+        return test2;
+    }
+
+    public void setTest2(Boolean test2) {
+        this.test2 = test2;
+    }
+
+    public Boolean getPasPrise() {
+        return pasPrise;
+    }
+
+    public void setPasPrise(Boolean pasPrise) {
+        this.pasPrise = pasPrise;
+    }
+
+    public Boolean getSousEnd() {
+        return sousEnd;
+    }
+
+    public void setSousEnd(Boolean sousEnd) {
+        this.sousEnd = sousEnd;
+    }
+
+    public Boolean getTransmurale() {
+        return transmurale;
+    }
+
+    public void setTransmurale(Boolean transmurale) {
+        this.transmurale = transmurale;
+    }
+
+    public Boolean getSousEp() {
+        return sousEp;
+    }
+
+    public void setSousEp(Boolean sousEp) {
+        this.sousEp = sousEp;
+    }
+
+    public Boolean getDiffuse() {
+        return diffuse;
+    }
+
+    public void setDiffuse(Boolean diffuse) {
+        this.diffuse = diffuse;
+    }
+
+    public Boolean getPatchy() {
+        return patchy;
+    }
+
+    public void setPatchy(Boolean patchy) {
+        this.patchy = patchy;
     }
 }

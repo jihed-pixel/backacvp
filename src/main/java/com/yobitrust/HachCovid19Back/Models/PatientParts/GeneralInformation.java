@@ -1,11 +1,13 @@
 package com.yobitrust.HachCovid19Back.Models.PatientParts;
 import java.util.Date;
 public class GeneralInformation {
-    private String nom;
-    private String prenom;
-    private Integer age;
+
+    private String ville;
+    private Date age;
     private String sexe;
-    private Integer dateDebut;
+    private Date dateD;
+    private String sport;
+    private Integer sportp;
     private Date date;
     private Integer nh;
 
@@ -13,37 +15,30 @@ public class GeneralInformation {
     public GeneralInformation() {
     }
 
-    public GeneralInformation(String nom, String prenom, Integer age, String sexe, Integer dateDebut, Date date, Integer nh) {
-        this.nom = nom;
-        this.prenom = prenom;
+    public GeneralInformation(String ville, Date age, String sexe, Date dateD, String sport, Integer sportp, Date date, Integer nh) {
+        this.ville = ville;
         this.age = age;
         this.sexe = sexe;
-        this.dateDebut = dateDebut;
+        this.dateD = dateD;
+        this.sport = sport;
+        this.sportp = sportp;
         this.date = date;
         this.nh = nh;
     }
 
-    public String getNom() {
-        return nom;
+    public String getVille() {
+        return ville;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setVille(String ville) {
+        this.ville = ville;
     }
 
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
-    public Integer getAge() {
+    public Date getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(Date age) {
         this.age = age;
     }
 
@@ -55,12 +50,28 @@ public class GeneralInformation {
         this.sexe = sexe;
     }
 
-    public Integer getDateDebut() {
-        return dateDebut;
+    public Date getDateD() {
+        return dateD;
     }
 
-    public void setDateDebut(Integer dateDebut) {
-        this.dateDebut = dateDebut;
+    public void setDateD(Date dateD) {
+        this.dateD = dateD;
+    }
+
+    public String getSport() {
+        return sport;
+    }
+
+    public void setSport(String sport) {
+        this.sport = sport;
+    }
+
+    public Integer getSportp() {
+        return sportp;
+    }
+
+    public void setSportp(Integer sportp) {
+        this.sportp = sportp;
     }
 
     public Date getDate() {

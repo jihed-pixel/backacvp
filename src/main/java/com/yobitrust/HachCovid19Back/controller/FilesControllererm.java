@@ -17,12 +17,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-@CrossOrigin("https://projet-48fcf.web.app")
+@CrossOrigin("https://yobi-project.web.app")
 public class FilesControllererm {
 
   @Autowired
   FilesStorageService3 storageService;
-  @CrossOrigin("https://projet-48fcf.web.app")
+  @CrossOrigin("https://yobi-project.web.app")
   @PostMapping("/upload3")
   public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
     String message = "";
@@ -36,7 +36,7 @@ public class FilesControllererm {
       return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
     }
   }
-  @CrossOrigin(origins ="https://projet-48fcf.web.app" )
+  @CrossOrigin(origins ="https://yobi-project.web.app" )
   @GetMapping("/files3")
   public ResponseEntity<List<FileInfo>> getListFiles() {
     List<FileInfo> fileInfos = storageService.loadAll3().map(path -> {
@@ -49,7 +49,7 @@ public class FilesControllererm {
 
     return ResponseEntity.status(HttpStatus.OK).body(fileInfos);
   }
-  @CrossOrigin(origins ="https://projet-48fcf.web.app" )
+  @CrossOrigin(origins ="https://yobi-project.web.app" )
   @GetMapping("/files3/{filename:.+}")
   public ResponseEntity<Resource> getFile(@PathVariable String filename) {
     Resource file = storageService.load3(filename);

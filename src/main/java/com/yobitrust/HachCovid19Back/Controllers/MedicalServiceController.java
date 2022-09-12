@@ -7,18 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins ="http://localhost:3000" )
+@CrossOrigin(origins ="*" )
 @RestController
 public class MedicalServiceController {
     @Autowired
     private MedicalServiceRepository medicalServiceRepository;
-    @CrossOrigin(origins ="http://localhost:3000" )
+    @CrossOrigin(origins ="*" )
     @GetMapping("/logout")
     public ResponseEntity logout(){
         System.out.println("logout");
         return  ResponseEntity.ok(null);
     }
-    @CrossOrigin(origins ="http://localhost:3000" )
+    @CrossOrigin(origins ="*" )
     @PostMapping("/cc")
     public String addMedicalService(@RequestBody  LoginRequestModel model){
 
@@ -31,7 +31,7 @@ public class MedicalServiceController {
         return "ok";
 
     }
-    @CrossOrigin(origins ="http://localhost:3000" )
+    @CrossOrigin(origins ="*" )
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody LoginRequestModel model)
     {
